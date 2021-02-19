@@ -1,15 +1,10 @@
-library(forecast)
-library(stats)
-library(datasets)
-library(readxl)
-library(tibble)
-library(lmtest)
-library(GGally)
-library(mctest)
-library(tseries)
-library(ggplot2)
-library(vars)
-
+packages_needed <- c('forecast','stats','datasets',
+                     'readxl','tibble', 'lmtest', 'GGally', 'mctest', 'tseries',
+                     'ggplot2', 'vars')
+for (i in packages_needed){
+  if (!require(i, character.only=TRUE)) install.packages(i, repos = "http://cran.us.r-project.org", quiet=TRUE)
+  require(i, character.only=TRUE)
+}
 
 case2 <- read_excel("Datasets/SocialMediaDK.xlsx")
 case1 <- read_excel("Datasets/CPIDK.xlsx")
